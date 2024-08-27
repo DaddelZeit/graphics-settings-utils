@@ -16,15 +16,18 @@ This will clear all profile saves and edit history.
 ## Credits
 [@DaddelZeit (Me)](https://www.beamng.com/members/352746/) - Programming, Contrast/Saturation Shader, Letterbox Shader, Profile tuning
 
-[CeeJayDK]((https://github.com/CeeJayDK) on GitHub - [SweetFX](https://github.com/CeeJayDK/SweetFX)/Shaders/[FilmGrain.fx](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/FilmGrain.fx)
+[CeeJayDK](https://github.com/CeeJayDK) on GitHub - [SweetFX](https://github.com/CeeJayDK/SweetFX)/Shaders/[FilmGrain.fx](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/FilmGrain.fx)
 
 [butterw](https://github.com/butterw) on GitHub - [bShaders](https://github.com/butterw/bShaders)/FilmGrain_Noise/[SweetFx.FilmGrain.hlsl](https://github.com/butterw/bShaders/FilmGrain_Noise/SweetFx.FilmGrain.hlsl)
 
-[GarageGames](https://github.com/GarageGames) on GitHub ([Torque 3D](https://github.com/GarageGames/Torque3D) - Sharpness PostFX, Vignette PostFX
+[GarageGames](https://github.com/GarageGames) on GitHub ([Torque 3D](https://github.com/GarageGames/Torque3D)) - Sharpness PostFX, Vignette PostFX
+
 [Rochet2](https://github.com/Rochet2) on GitHub - lualzw/[lualzw.lua](https://github.com/Rochet2/lualzw/blob/master/lualzw.lua)
 
 [@KlaidasHQ](https://www.beamng.com/members/245486/) - Direct testing
+
 sum1namedkris - Direct Testing
+
 [@Car_Killer](https://www.beamng.com/members/27522/) - Testing Future-Compatibility
 Theocord Members - Broad-scale testing
 
