@@ -1,0 +1,1 @@
+setExtensionUnloadMode("zeit_rcMain", "manual")

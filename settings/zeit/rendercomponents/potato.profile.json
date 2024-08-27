@@ -1,0 +1,63 @@
+{
+  "dof":{
+    "farBlurMax":0.15,
+    "farSlope":10,
+    "focalDist":0,
+    "isEnabled":"0",
+    "lerpBias":"1.0 1.666667 2.000000 -1.000000",
+    "lerpScale":"-5.000000 -3.333333 -2.000000 2.000000",
+    "maxRange":100,
+    "nearBlurMax":0,
+    "nearSlope":-20
+  },
+  "generaleffects":{
+    "$pref::Camera::distanceScale":0.6000000238,
+    "$pref::GroundCover::densityScale":0.06,
+    "$pref::Reflect::refractTexScale":0.3000000119,
+    "$pref::Shadows::disable":2,
+    "$pref::Shadows::filterMode":"None",
+    "$pref::Shadows::textureScalar":0.5,
+    "$pref::TS::detailAdjust":0.15,
+    "$pref::TS::maxDecalCount":300,
+    "$pref::TS::skipRenderDLs":1,
+    "$pref::TS::smallestVisiblePixelSize":4,
+    "$pref::Video::defaultAnisotropy":0,
+    "$pref::Video::textureReductionLevel":4,
+    "$pref::Water::disableTrueReflections":1,
+    "$pref::lightManager":"Basic Lighting",
+    "$pref::windEffectRadius":0
+  },
+  "rendercomponents":{
+    "HSL":"1 0.999989986 0.999989986 1.28600001",
+    "bloomScale":"0.5",
+    "blueShiftColor":"0.848693013 0.793675005 1",
+    "blueShiftLumVal":"0.150000006",
+    "colorCorrectionRampPath":"",
+    "colorCorrectionStrength":"1",
+    "enableBlueShift":"0.0299999993",
+    "enabled":"1",
+    "knee":0.1000000015,
+    "maxAdaptedLum":"1.20000005",
+    "middleGray":"0.5",
+    "oneOverGamma":"1",
+    "threshHold":2.920000076
+  },
+  "shadowsettings":{
+    "attenuationRatio":"0 1 1",
+    "cookie":"",
+    "fadeStartDistance":"0",
+    "logWeight":"0.980000019",
+    "numSplits":"4",
+    "overDarkFactor":"40000 8000 5000 650",
+    "shadowDistance":"1300",
+    "shadowSoftness":"0.25000003",
+    "shadowType":"PSSM",
+    "texSize":"1024"
+  },
+  "sharpen":{
+    "sharpness":0.200000003
+  },
+  "uifps":{
+    "fps":15
+  }
+}

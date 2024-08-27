@@ -1,0 +1,4 @@
+{
+    "rcZeitMainWindowToggle": {"cat":"general", "order": 150, "ctx": "tlua", "onDown"  :"if zeit_rcUI_edit then zeit_rcUI_edit.toggleUI() end", "actionMap": "Global", "title": "Toggle Graphic Utils", "desc": "Shows or hides Zeit's Graphics Utils window."},
+    "rcZeitProfileWindowToggle": {"cat":"general", "order": 150, "ctx": "tlua", "onDown"  :"if zeit_rcUI_profileManager then zeit_rcUI_profileManager.toggleUI() end", "actionMap": "Global", "title": "Toggle Graphic Utils Profile Manager", "desc": "Shows or hides Zeit's Graphics Utils Profile Manager window."}
+}
