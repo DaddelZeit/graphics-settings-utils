@@ -8,10 +8,14 @@ The profile save location is `\settings\zeit\renderercomponents\` in your userfo
 Only use this to directly back up your settings. If you want to share a profile,
 use the designated export functionality in the Profile Manager or Edit Window.
 
-##### How do I uninstall this?
+#### How do I uninstall this?
 A deinstall and then a restart is enough. The mod will prompt a full deinstall upon removing the mod.
 If you want to get rid of all traces manually, clear cache and then delete `\settings\zeit\renderercomponents\` in your userfolder.
 This will clear all profile saves and edit history.
+
+#### Can I access older releases?
+This repository was created as an archive for old versions starting at V14.
+Use the respective branches to view different versions.
 
 ## Credits
 [@DaddelZeit (Me)](https://www.beamng.com/members/352746/) - Programming, Contrast/Saturation Shader, Letterbox Shader, Profile tuning
