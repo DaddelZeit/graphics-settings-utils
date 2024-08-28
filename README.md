@@ -1,42 +1,52 @@
-#### Latest Release
-- Download: https://github.com/DaddelZeit/graphics-settings-utils/releases/tag/V14
-- Source: https://github.com/DaddelZeit/graphics-settings-utils/tree/v14
+## Updates
+- Slightly updated the update check system
+- Slightly updated the save/load dialog system
+- Slightly updated the profile manager
+- Moved Keybinds to their own category
+- Edit UI menu bar is now available in the main menu
+- Added "Duplicate" and "Export" buttons to profile manager
+- Added "Reset" button to Edit Window variables
+- Added extensive DOF settings to Edit Window under "PostFX"
 
-# Zeit's graphics settings utils
-A powerful graphics managing utility, built in BeamNG.drive
+## Additions
+- Added new way to navigate the mod windows with a single keybind:
+  > Press full keybind to open
+  
+  > Release and press the last part to cycle selector
+  
+  > Default: right ctrl + ^ (Adjustable)
+- Added a loading spinner when applying a profile
+- Added Settings Menu:
+  > Auto Update Check
+  
+  > Auto Re-Apply
+  
+  > History Commit Timer
+  
+  > Max History Items
 
-## FAQ
-#### Where do profiles save?
+  > Debug utilities
 
-The profile save location is `\settings\zeit\renderercomponents\` in your userfolder.
-Only use this to directly back up your settings. If you want to share a profile,
-use the designated export functionality in the Profile Manager or Edit Window.
+  > "About": Version, Credits, Contact
 
-#### How do I uninstall this?
-A deinstall and then a restart is enough. The mod will prompt a full deinstall upon removing the mod.
-If you want to get rid of all traces manually, clear cache and then delete `\settings\zeit\renderercomponents\` in your userfolder.
-This will clear all profile saves and edit history.
+- Added a dialog on de-install: "Remove all remnants?"
 
-#### Can I access older releases?
-This repository was created as an archive for old versions starting at V14.
-Use the respective branches to view different versions. "main" will always be empty aside from information regarding the mod.
+- Added an info card when the apply loop limit is reached
+- Added an info card when CK Graphics is installed
+- Added lualzw compression for profile exports
 
-## Credits
-[@DaddelZeit (Me)](https://www.beamng.com/members/352746/) - Programming, Contrast/Saturation Shader, Letterbox Shader, Profile tuning
+## Fixes
+- Screen/display will no longer be applied again when loading
+- Reduced chance of apply loop
+- DOF and HDR settings now reset properly when changing presets
+- Import process now won't overwrite installed profiles and instead create a unique name for each conflicting import
+- Most game option menus now temporarily disable automatic apply
+- Fixed scrollbar not working in Profile Manager
+- Added more fallbacks to export/import functionality
+- Moved display functions for the widget sections in the edit window into their own file
+- Moved search functionality into another module out of the profile manager
+- Unified export options into a single module for sync, added settings keys to store changes
+- More optimisations and backend changes
 
-[CeeJayDK](https://github.com/CeeJayDK) on GitHub - [SweetFX](https://github.com/CeeJayDK/SweetFX)/Shaders/[FilmGrain.fx](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/FilmGrain.fx)
-
-[butterw](https://github.com/butterw) on GitHub - [bShaders](https://github.com/butterw/bShaders)/FilmGrain_Noise/[SweetFx.FilmGrain.hlsl](https://github.com/butterw/bShaders/FilmGrain_Noise/SweetFx.FilmGrain.hlsl)
-
-[GarageGames](https://github.com/GarageGames) on GitHub ([Torque 3D](https://github.com/GarageGames/Torque3D)) - Sharpness PostFX, Vignette PostFX
-
-[Rochet2](https://github.com/Rochet2) on GitHub - lualzw/[lualzw.lua](https://github.com/Rochet2/lualzw/blob/master/lualzw.lua)
-
-[@KlaidasHQ](https://www.beamng.com/members/245486/) - Direct testing
-
-sum1namedkris - Direct Testing
-
-[@Car_Killer](https://www.beamng.com/members/27522/) - Testing Future-Compatibility
-Theocord Members - Broad-scale testing
-
-## [Check for Updates](https://tinyurl.com/59w85d2b)
+# Source
+https://github.com/DaddelZeit/graphics-settings-utils/tree/v15
