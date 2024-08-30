@@ -1,4 +1,3 @@
-## Beta Branch
 ##### Latest Stable Release
 - Download: https://github.com/DaddelZeit/graphics-settings-utils/releases/tag/V14
 - Source: https://github.com/DaddelZeit/graphics-settings-utils/tree/v14
