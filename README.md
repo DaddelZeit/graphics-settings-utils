@@ -7,6 +7,7 @@
 - Added "Duplicate" and "Export" buttons to profile manager
 - Added "Reset" button to Edit Window variables
 - Added extensive DOF settings to Edit Window under "PostFX"
+- Added Vibrancy settings to contrast/saturation
 
 ## Additions
 - Added new way to navigate the mod windows with a single keybind:
@@ -43,6 +44,7 @@
 - Added an info card when the apply loop limit is reached
 - Added an info card when CK Graphics is installed
 - Added lualzw compression for profile exports
+- Added chromatic abberation postfx
 
 ## Fixes
 - Screen/display will no longer be applied again when loading
