@@ -14,7 +14,7 @@
   
   > Release and press the last part to cycle selector
   
-  > Default: right ctrl + ^ (Adjustable)
+  > Default: left ctrl + ^ (Adjustable)
 - Added a loading spinner when applying a profile
 - Added Settings Menu:
   > Auto Update Check
@@ -28,6 +28,15 @@
   > Debug utilities
 
   > "About": Version, Credits, Contact
+
+- Added Photo tool:
+  > Supersample controls
+  
+  > LOD/Terrain LOD/Groundcover scales
+  
+  > Motion Blur
+  
+  > Grid
 
 - Added a dialog on de-install: "Remove all remnants?"
 
