@@ -19,7 +19,6 @@ This will clear all profile saves and edit history.
 
 #### Can I access older releases?
 This repository was created as an archive for old versions starting at V14. Use the respective branches to view different versions.
-"dev" will always contain the latest development build of this mod and may not work correctly at all times.
 
 ## Credits
 [@DaddelZeit (Me)](https://www.beamng.com/members/352746/) - Programming, Contrast/Saturation Shader, Letterbox Shader, Profile tuning
