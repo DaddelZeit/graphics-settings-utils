@@ -1,0 +1,70 @@
+{
+  "contrastsaturation":{
+    "contrast":1.065739989,
+    "saturation":0.9550200105
+  },
+  "dof":{
+    "farBlurMax":0.072,
+    "farSlope":10,
+    "focalDist":13.9898,
+    "isEnabled":"2",
+    "maxRange":98.563,
+    "minRange":51.54,
+    "nearBlurMax":0,
+    "nearSlope":-20
+  },
+  "generaleffects":{
+    "$LightRayPostFX::decay":1,
+    "$LightRayPostFX::exposure":0.0001,
+    "$LightRayPostFX::numSamples":64,
+    "$LightRayPostFX::resolutionScale":0.4,
+    "$LightRayPostFX::weight":10,
+    "$pref::BeamNGVehicle::dynamicMirrors::distance":600,
+    "$pref::BeamNGVehicle::dynamicMirrors::enabled":1,
+    "$pref::BeamNGVehicle::dynamicMirrors::textureSize":2048,
+    "$pref::BeamNGVehicle::dynamicReflection::detail":1,
+    "$pref::BeamNGVehicle::dynamicReflection::enabled":1,
+    "$pref::BeamNGVehicle::dynamicReflection::textureSize":2048,
+    "$pref::GroundCover::densityScale":1.149999976,
+    "$pref::Shadows::disable":0,
+    "$pref::Shadows::textureScalar":1.1,
+    "$pref::TS::detailAdjust":1,
+    "$pref::TS::smallestVisiblePixelSize":1
+  },
+  "rendercomponents":{
+    "HSL":"1 0.999989986 0.999989986 1.28600001",
+    "bloomScale":"0.5",
+    "blueShiftColor":"0.848693013 0.793675005 1",
+    "blueShiftLumVal":"0.150000006",
+    "colorCorrectionRampPath":"",
+    "colorCorrectionStrength":"1",
+    "enableBlueShift":"0.0299999993",
+    "enabled":"1",
+    "knee":0.1000000015,
+    "maxAdaptedLum":"1.20000005",
+    "middleGray":"0.5",
+    "oneOverGamma":"1",
+    "threshHold":2.920000076
+  },
+  "shadowsettings":{
+    "attenuationRatio":"0 1 1",
+    "cookie":"",
+    "fadeStartDistance":"0",
+    "logWeight":"0.99000001",
+    "numSplits":"4",
+    "overDarkFactor":"1e+09 1e+05 1e+05 1e+05",
+    "shadowDistance":"3000",
+    "shadowSoftness":"0.15000003",
+    "shadowType":"PSSM",
+    "texSize":"2048"
+  },
+  "sharpen":{
+    "sharpness":0.150000006
+  },
+  "ssao":{
+    "samples":32
+  },
+  "uifps":{
+    "fps":60
+  }
+}

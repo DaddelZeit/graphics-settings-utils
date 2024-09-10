@@ -1,0 +1,28 @@
+{
+  "generaleffects":{
+    "$pref::BeamNGVehicle::dynamicMirrors::enabled":0,
+    "$pref::BeamNGVehicle::dynamicReflection::enabled":0,
+    "$pref::GroundCover::densityScale":0.06,
+    "$pref::Reflect::refractTexScale":0.3000000119,
+    "$pref::Shadows::disable":2,
+    "$pref::Shadows::filterMode":"None",
+    "$pref::Shadows::textureScalar":0.5,
+    "$pref::TS::detailAdjust":0.15,
+    "$pref::TS::maxDecalCount":300,
+    "$pref::TS::skipRenderDLs":1,
+    "$pref::TS::smallestVisiblePixelSize":4,
+    "$pref::Terrain::detailScale":0.6999999881,
+    "$pref::Terrain::lodScale":0.9,
+    "$pref::Video::defaultAnisotropy":0,
+    "$pref::Video::textureReductionLevel":4,
+    "$pref::Water::disableTrueReflections":1,
+    "$pref::lightManager":"Basic Lighting",
+    "$pref::windEffectRadius":0
+  },
+  "sharpen":{
+    "sharpness":0.200000003
+  },
+  "uifps":{
+    "fps":15
+  }
+}

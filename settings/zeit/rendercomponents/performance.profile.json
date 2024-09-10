@@ -1,0 +1,39 @@
+{
+  "generaleffects":{
+    "$pref::BeamNGVehicle::dynamicMirrors::enabled":0,
+    "$pref::BeamNGVehicle::dynamicReflection::enabled":0,
+    "$pref::GroundCover::densityScale":0.3000000119,
+    "$pref::Reflect::refractTexScale":0.3000000119,
+    "$pref::Shadows::disable":0,
+    "$pref::Shadows::filterMode":"SoftShadow",
+    "$pref::Shadows::textureScalar":0.6000000238,
+    "$pref::TS::detailAdjust":0.5,
+    "$pref::TS::maxDecalCount":500,
+    "$pref::TS::skipRenderDLs":1,
+    "$pref::TS::smallestVisiblePixelSize":3,
+    "$pref::Terrain::detailScale":0.6999999881,
+    "$pref::Terrain::lodScale":1,
+    "$pref::Video::defaultAnisotropy":4,
+    "$pref::Video::textureReductionLevel":2,
+    "$pref::Water::disableTrueReflections":1,
+    "$pref::lightManager":"Advanced Lighting"
+  },
+  "shadowsettings":{
+    "attenuationRatio":"0 1 1",
+    "cookie":"",
+    "fadeStartDistance":"0",
+    "logWeight":"0.980000019",
+    "numSplits":"4",
+    "overDarkFactor":"40000 8000 5000 650",
+    "shadowDistance":"1300",
+    "shadowSoftness":"0.25000003",
+    "shadowType":"PSSM",
+    "texSize":"1024"
+  },
+  "sharpen":{
+    "sharpness":0.150000006
+  },
+  "uifps":{
+    "fps":22
+  }
+}

@@ -1,0 +1,56 @@
+{
+    "rcZeitWindowTogglePrimary": {
+        "cat":"rcZeit",
+        "order": 1,
+        "ctx": "tlua",
+        "onChange": "if zeit_rcUI_select then zeit_rcUI_select.primary(VALUE) end",
+        "actionMap": "Global",
+        "title": "Unified Window Selector: Hold Open",
+        "desc": "Opens the unified window selector when pressed with the secondary input, closes it when released and opens the selected window."
+    },
+    "rcZeitWindowToggleSecondary": {
+        "cat":"rcZeit",
+        "order": 1,
+        "ctx": "tlua",
+        "onChange": "if zeit_rcUI_select then zeit_rcUI_select.secondary(VALUE) end",
+        "actionMap": "Global",
+        "title": "Unified Window Selector: Cycle Through",
+        "desc": "The unified window selector opens when this is pressed in combination with the primary input. Release and press this again to select the next window."
+    },
+    "rcZeitProfileWindowToggle": {
+        "cat":"rcZeit",
+        "order": 2,
+        "ctx": "tlua",
+        "onDown": "if zeit_rcUI_profileManager then zeit_rcUI_profileManager.toggleUI() end",
+        "actionMap": "Global",
+        "title": "Profile Manager",
+        "desc": "Shows or hides the profile manager window."
+    },
+    "rcZeitMainWindowToggle": {
+        "cat":"rcZeit",
+        "order": 3,
+        "ctx": "tlua",
+        "onDown": "if zeit_rcUI_edit then zeit_rcUI_edit.toggleUI() end",
+        "actionMap": "Global",
+        "title": "Profile Editor",
+        "desc": "Shows or hides the profile editor window."
+    },
+    "rcZeitPhotoWindowToggle": {
+        "cat":"rcZeit",
+        "order": 4,
+        "ctx": "tlua",
+        "onDown": "if zeit_rcUI_screenshot then zeit_rcUI_screenshot.toggleUI() end",
+        "actionMap": "Global",
+        "title": "Photo Tool",
+        "desc": "Shows or hides the photo tool window."
+    },
+    "rcZeitSettingsWindowToggle": {
+        "cat":"rcZeit",
+        "order": 5,
+        "ctx": "tlua",
+        "onDown": "if zeit_rcUI_settings then zeit_rcUI_settings.toggleUI() end",
+        "actionMap": "Global",
+        "title": "Settings",
+        "desc": "Shows or hides the settings window."
+    }
+}
