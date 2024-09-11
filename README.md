@@ -1,6 +1,6 @@
 ##### Latest Stable Release
-- Download: https://github.com/DaddelZeit/graphics-settings-utils/releases/tag/V14
-- Source: https://github.com/DaddelZeit/graphics-settings-utils/tree/v14
+- Download: https://github.com/DaddelZeit/graphics-settings-utils/releases/tag/V15
+- Source: https://github.com/DaddelZeit/graphics-settings-utils/tree/v15
 ---
 # Zeit's graphics settings utils
 A powerful graphics managing utility, built in BeamNG.drive
