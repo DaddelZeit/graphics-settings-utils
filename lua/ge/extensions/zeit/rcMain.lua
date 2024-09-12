@@ -6,6 +6,13 @@ local M = {}
 local min = math.min
 local max = math.max
 
+local prevlog = log
+local function log(...)
+    if settings.getValue("zeit_graphics_collect_logs") then
+        prevlog(...)
+    end
+end
+
 local modules = FS:findFiles("/lua/ge/extensions/zeit/rc", "*.lua", 1, false, false)
 M.profilePath = "/settings/zeit/rendercomponents/"
 M.currentProfile = "vanilla"
@@ -25,6 +32,19 @@ do
         M.currentChangelog = f:read("*all")
         f:close()
     end
+
+    local filepath = FS:findOverrides("lua/ge/extensions/zeit/rcMain.lua")[1]
+    filepath = "/"..filepath:gsub(FS:getUserPath(), ""):gsub("\\", "/")
+
+    local modname = string.lower(filepath)
+    modname = modname:gsub('dir:/', '') --should have been killed by now
+    modname = modname:gsub('/mods/', '')
+    modname = modname:gsub('repo/', '')
+    modname = modname:gsub('unpacked/', '')
+    modname = modname:gsub('/', '')
+    modname = modname:gsub('.zip$', '')
+    log("I", "", "Mod installed in: "..filepath.." | ".."name result: "..modname)
+    M.modInstallName = modname
 end
 
 M.isApplying = true
@@ -52,13 +72,6 @@ do
     M.toggleUI = function(bool)
         i = max(i + (bool and 1 or -1))
         uiActive = i > 0
-    end
-end
-
-local prevlog = log
-local function log(...)
-    if settings.getValue("zeit_graphics_collect_logs") then
-        prevlog(...)
     end
 end
 
@@ -544,7 +557,7 @@ end
 
 local function onFilesChanged()
     if not zeit_rcUI_deleteAll then return end
-    local entry = core_modmanager.getModDB("renderer_components_loadsave_zeit")
+    local entry = core_modmanager.getModDB(M.modInstallName)
     if entry == nil then
         zeit_rcUI_deleteAll.toggleUI(true, function(callbacks, job)
             deleteInProgress = true

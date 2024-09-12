@@ -17,24 +17,27 @@ local newVersion = 0
 local timeout = -1
 local timoutTimer = 0
 
+local function renderChangelog(str)
+    im.BeginChild1("zeitRenderSettingsUpdateChangelog", im.ImVec2(im.GetContentRegionAvailWidth(), 200))
+    im.PushTextWrapPos(im.GetContentRegionAvailWidth())
+    im.Text(str)
+    if im.BeginPopupContextWindow() then
+        if im.Selectable1("Copy", false) then
+            setClipboard(str)
+        end
+        im.EndPopup()
+    end
+    im.PopTextWrapPos()
+    im.EndChild()
+end
+
 local function updateAvailable()
     im.PushFont3("cairo_semibold_large")
     im.Text("An update is available for \"Zeit's graphics settings utils\"")
     im.PopFont()
     im.Text("Version "..newVersion.." Available.")
     im.Text("Changelog:")
-    im.Text(changelog)
-    if im.BeginPopupContextWindow() then
-        if im.Selectable1("Copy", false) then
-            setClipboard("Changelog:\n"..changelog)
-        end
-        im.BeginDisabled()
-        im.Selectable1("Paste", false)
-        im.Selectable1("Cut", false)
-        im.EndDisabled()
-        im.EndPopup()
-    end
-    im.Text("")
+    renderChangelog(changelog)
 
     if downloadLink ~= "" then
         im.SetCursorPosX(im.GetWindowSize().x-im.CalcTextSize("Download").x-im.CalcTextSize("Open Download Page").x-style.ItemSpacing.x*3-style.ItemInnerSpacing.x*4-style.WindowPadding.x)
@@ -49,17 +52,9 @@ local function noUpdateAvailable()
     im.PushFont3("cairo_semibold_large")
     im.Text("No updates are available for \"Zeit's graphics settings utils\"")
     im.PopFont()
-    im.Text("Changelog for this version:")
-    im.Text(zeit_rcMain.currentChangelog or "")
-    if im.BeginPopupContextWindow() then
-        if im.Selectable1("Copy", false) then
-            setClipboard("Changelog for this version:\n"..(zeit_rcMain.currentChangelog or ""))
-        end
-        im.BeginDisabled()
-        im.Selectable1("Paste", false)
-        im.Selectable1("Cut", false)
-        im.EndDisabled()
-        im.EndPopup()
+    if zeit_rcMain.currentChangelog then
+        im.Text("Changelog for this version:")
+        renderChangelog(zeit_rcMain.currentChangelog)
     end
     im.Text("")
 
@@ -153,18 +148,20 @@ local function getUpdateAvailable(isAuto)
         if timeout == 1 or request.responseData == nil then return end
         timeout = -1
 
-        local rspData = request.responseData.data
+        local rspData = request.responseData.data or {}
 
-        local ver = rspData.message:match("renderComponentsVersion=+%d+"):gsub("renderComponentsVersion=", "")
-        local changelogB64 = (rspData.message:match("renderComponentsChangelog=.+==renderComponentsChangelogEnd") or "unavailable"):gsub("renderComponentsChangelog=", ""):gsub("renderComponentsChangelogEnd", "")
+        if rspData.message then
+            local ver = rspData.message:match("renderComponentsVersion=+[%d%.]+"):gsub("renderComponentsVersion=", "")
+            local changelogB64 = (rspData.message:match("renderComponentsChangelog=.+==renderComponentsChangelogEnd") or "unavailable"):gsub("renderComponentsChangelog=", ""):gsub("renderComponentsChangelogEnd", "")
 
-        downloadLink = (rspData.message:match("renderComponentsLink=.+==renderComponentsLinkEnd") or ""):gsub("renderComponentsLink=", ""):gsub("==renderComponentsLinkEnd", "")
-        changelog = changelogB64 ~= "unavailable" and mime.unb64(changelogB64) or "unavailable"
+            downloadLink = (rspData.message:match("renderComponentsLink=.+==renderComponentsLinkEnd") or ""):gsub("renderComponentsLink=", ""):gsub("==renderComponentsLinkEnd", "")
+            changelog = changelogB64 ~= "unavailable" and mime.unb64(changelogB64) or "unavailable"
 
-        local verMismatch = tonumber(ver) and tonumber(ver) > (currentVersion or 0) or false
-        newVersion = tonumber(ver) or 0
+            local verMismatch = tonumber(ver) and tonumber(ver) > (currentVersion or 0) or false
+            newVersion = tonumber(ver) or 0
 
-        showUI = verMismatch or not isAuto
+            showUI = verMismatch or not isAuto
+        end
     end)
 end
 
