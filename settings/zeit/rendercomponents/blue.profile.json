@@ -1,0 +1,66 @@
+{
+  "autofocus":{
+    "isEnabled":false
+  },
+  "contrastsaturation":{
+    "contrast":1.026419997,
+    "saturation":0.9811300039
+  },
+  "dof":{
+    "farBlurMax":0.331,
+    "farSlope":10,
+    "focalDist":0,
+    "isEnabled":"1",
+    "lerpBias":"1.0 1.666667 2.000000 -1.000000",
+    "lerpScale":"-5.000000 -3.333333 -2.000000 2.000000",
+    "maxRange":41.068,
+    "nearBlurMax":0,
+    "nearSlope":-20
+  },
+  "generaleffects":{
+    "$LightRayPostFX::decay":1,
+    "$LightRayPostFX::exposure":0.0003,
+    "$LightRayPostFX::numSamples":64,
+    "$LightRayPostFX::resolutionScale":0.3,
+    "$LightRayPostFX::weight":15,
+    "$pref::BeamNGVehicle::dynamicReflection::detail":1,
+    "$pref::BeamNGVehicle::dynamicReflection::textureSize":2048,
+    "$pref::Shadows::textureScalar":1.1,
+    "$pref::TS::detailAdjust":1.1
+  },
+  "rendercomponents":{
+    "HSL":"1 0.999989986 0.999989986 1.28600001",
+    "bloomScale":"0.5",
+    "blueShiftColor":"0.848693013 0.793675005 1",
+    "blueShiftLumVal":"0.150000006",
+    "colorCorrectionRampPath":"/art/postfx/color_ramp_blurange.png",
+    "colorCorrectionStrength":"0.5",
+    "enableBlueShift":"0.200000003",
+    "enabled":"1",
+    "knee":0.1000000015,
+    "maxAdaptedLum":"1.59000003",
+    "middleGray":"0.5",
+    "oneOverGamma":"1",
+    "threshHold":2.506000042
+  },
+  "shadowsettings":{
+    "attenuationRatio":"0 1 1",
+    "cookie":"",
+    "fadeStartDistance":"0",
+    "logWeight":"0.995999992",
+    "numSplits":"4",
+    "overDarkFactor":"1e+09 1e+09 1e+09 1e+09",
+    "shadowDistance":"3000",
+    "shadowSoftness":"0.25000003",
+    "shadowType":"PSSM",
+    "texSize":"2048"
+  },
+  "ssao":{
+    "contrast":1.8,
+    "radius":1.9,
+    "samples":32
+  },
+  "uifps":{
+    "fps":60
+  }
+}

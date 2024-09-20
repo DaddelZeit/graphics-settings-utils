@@ -1,0 +1,68 @@
+{
+  "autofocus":{
+    "isEnabled":true
+  },
+  "contrastsaturation":{
+    "contrast":1.049999952,
+    "saturation":0.9580000043
+  },
+  "dof":{
+    "farBlurMax":0.489,
+    "farSlope":10,
+    "focalDist":199.995,
+    "isEnabled":"1",
+    "lerpBias":"1.0 1.666667 2.000000 -1.000000",
+    "lerpScale":"-5.000000 -3.333333 -2.000000 2.000000",
+    "maxRange":100.616,
+    "nearBlurMax":0,
+    "nearSlope":-20
+  },
+  "generaleffects":{
+    "$LightRayPostFX::decay":1,
+    "$LightRayPostFX::exposure":0.0005,
+    "$LightRayPostFX::numSamples":48,
+    "$LightRayPostFX::resolutionScale":0.3,
+    "$LightRayPostFX::weight":10,
+    "$pref::BeamNGVehicle::dynamicReflection::detail":1,
+    "$pref::BeamNGVehicle::dynamicReflection::textureSize":2048,
+    "$pref::Reflect::refractTexScale":1.5,
+    "$pref::Shadows::textureScalar":4,
+    "$pref::TS::detailAdjust":1.1,
+    "$pref::Terrain::lodScale":1.4
+  },
+  "rendercomponents":{
+    "HSL":"1 0.999989986 0.999989986 1.51300001",
+    "bloomScale":"0.5",
+    "blueShiftColor":"0.810047984 0.740996003 1",
+    "blueShiftLumVal":"0.280000001",
+    "colorCorrectionRampPath":"/art/postfx/Warm Hug.png",
+    "colorCorrectionStrength":"0.100000001",
+    "enableBlueShift":"0.200000003",
+    "enabled":"1",
+    "knee":0.1449999958,
+    "maxAdaptedLum":"1.25",
+    "middleGray":"0.400000006",
+    "oneOverGamma":"1",
+    "threshHold":2.680000067
+  },
+  "shadowsettings":{
+    "attenuationRatio":"0 1 1",
+    "cookie":"",
+    "fadeStartDistance":"0",
+    "logWeight":"0.995999992",
+    "numSplits":"4",
+    "overDarkFactor":"1e+09 1e+09 1e+09 1e+09",
+    "shadowDistance":"3000",
+    "shadowSoftness":"0.25000003",
+    "shadowType":"PSSM",
+    "texSize":"2048"
+  },
+  "ssao":{
+    "contrast":2.5,
+    "radius":1.6,
+    "samples":32
+  },
+  "uifps":{
+    "fps":60
+  }
+}

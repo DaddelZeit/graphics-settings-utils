@@ -1,0 +1,66 @@
+{
+  "autofocus":{
+    "isEnabled":false
+  },
+  "contrastsaturation":{
+    "contrast":1.100350022,
+    "saturation":0.9550200105
+  },
+  "dof":{
+    "farBlurMax":0.326,
+    "farSlope":75.799,
+    "focalDist":101.973,
+    "isEnabled":"1",
+    "lerpBias":"1.0 1.666667 2.000000 -1.000000",
+    "lerpScale":"-5.000000 -3.333333 -2.000000 2.000000",
+    "maxRange":43.121,
+    "nearBlurMax":0,
+    "nearSlope":-20
+  },
+  "generaleffects":{
+    "$LightRayPostFX::decay":1,
+    "$LightRayPostFX::exposure":0.0001,
+    "$LightRayPostFX::numSamples":64,
+    "$LightRayPostFX::resolutionScale":0.2,
+    "$LightRayPostFX::weight":10,
+    "$pref::BeamNGVehicle::dynamicReflection::detail":1,
+    "$pref::BeamNGVehicle::dynamicReflection::textureSize":2048,
+    "$pref::Shadows::textureScalar":1.1,
+    "$pref::TS::detailAdjust":2.1
+  },
+  "rendercomponents":{
+    "HSL":"1 0.999989986 0.999989986 1.28600001",
+    "bloomScale":"0.5",
+    "blueShiftColor":"0.848693013 0.793675005 1",
+    "blueShiftLumVal":"0.150000006",
+    "colorCorrectionRampPath":"",
+    "colorCorrectionStrength":"1",
+    "enableBlueShift":"0.0299999993",
+    "enabled":"1",
+    "knee":0.1000000015,
+    "maxAdaptedLum":"1.20000005",
+    "middleGray":"0.5",
+    "oneOverGamma":"1",
+    "threshHold":2.920000076
+  },
+  "shadowsettings":{
+    "attenuationRatio":"0 1 1",
+    "cookie":"",
+    "fadeStartDistance":"0",
+    "logWeight":"0.995999992",
+    "numSplits":"4",
+    "overDarkFactor":"1e+09 1e+09 1e+09 1e+09",
+    "shadowDistance":"3000",
+    "shadowSoftness":"0.25000003",
+    "shadowType":"PSSM",
+    "texSize":"2048"
+  },
+  "ssao":{
+    "contrast":2.5,
+    "radius":1.5,
+    "samples":16
+  },
+  "uifps":{
+    "fps":60
+  }
+}

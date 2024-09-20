@@ -1,0 +1,10 @@
+{
+  "author":"DaddelZeit",
+  "date":"Sun Aug 20 13:09:24 2023",
+  "desc":"This preset includes SSAO, contrast and saturation adjustments.\nLight rays were intensified, dynamic reflection resolution and detail increased and shadows sharpened to 4K.\nBest used with the Ultra preset.",
+  "name":"Ultra",
+  "tags":[
+    "looks",
+    "cinematic"
+  ]
+}

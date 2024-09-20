@@ -1,0 +1,56 @@
+{
+  "autofocus":{
+    "isEnabled":false
+  },
+  "contrastsaturation":{
+    "contrast":1,
+    "saturation":1
+  },
+  "dof":{
+    "farBlurMax":0.15,
+    "farSlope":10,
+    "focalDist":0,
+    "isEnabled":"1",
+    "lerpBias":"1.0 1.666667 2.000000 -1.000000",
+    "lerpScale":"-5.000000 -3.333333 -2.000000 2.000000",
+    "maxRange":100,
+    "nearBlurMax":0,
+    "nearSlope":-20
+  },
+  "generaleffects":{},
+  "rendercomponents":{
+    "HSL":"1 1 1 1",
+    "bloomScale":"0",
+    "blueShiftColor":"1.04999995 0.970000029 1.26999998",
+    "blueShiftLumVal":"0.100000001",
+    "colorCorrectionRampPath":"",
+    "colorCorrectionStrength":"1",
+    "enableBlueShift":"0",
+    "enabled":"1",
+    "knee":0.1000000015,
+    "maxAdaptedLum":"1",
+    "middleGray":"0.5",
+    "oneOverGamma":"1",
+    "threshHold":3.5
+  },
+  "shadowsettings":{
+    "attenuationRatio":"0 1 1",
+    "cookie":"",
+    "fadeStartDistance":"1000",
+    "logWeight":"0.980000019",
+    "numSplits":"4",
+    "overDarkFactor":"40000 8000 5000 650",
+    "shadowDistance":"1600",
+    "shadowSoftness":"0.200000003",
+    "shadowType":"PSSM",
+    "texSize":"1024"
+  },
+  "ssao":{
+    "contrast":2,
+    "radius":1.5,
+    "samples":16
+  },
+  "uifps":{
+    "fps":30
+  }
+}
