@@ -63,3 +63,8 @@
 
 # Source
 https://github.com/DaddelZeit/graphics-settings-utils/tree/v15
+
+# V15.5
+- Fixed removal popup check not correctly grabbing mod name
+- Fixed changelog getting too big
+- Version check can now work with decimals (this versions numbering will be slightly messed up)
