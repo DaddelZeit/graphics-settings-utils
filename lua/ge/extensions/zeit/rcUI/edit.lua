@@ -81,6 +81,15 @@ local dofVals = {
     NearSlope = im.FloatPtr(0),
     Debug = im.BoolPtr(false)
 }
+local colorCorrectionPrefix = "/art/postfx/"
+local colorCorrectionRampIndex = 0
+local colorCorrectionRamps = {
+    [0] = "None"
+}
+local hdrVals = {
+    colorCorrectionRampPath = "",
+    colorCorrectionStrength = im.FloatPtr(1),
+}
 local uiFpsValue = im.IntPtr(30)
 local queueEditorOpen = false
 
@@ -292,6 +301,61 @@ local modules = {
         if widgets.button("Save \"HDR\" and \"Bloom\" Settings") then
             if zeit_rc_rendercomponents then zeit_rc_rendercomponents.getAndSaveSettings() end
         end
+        im.NewLine()
+
+        widgets.tooltipButton({
+            desc = "1-dimensional image for basic color correction mapping.",
+            default = "None",
+            varName = "PostEffectCombinePassObject.colorCorrectionRampPath",
+            varType = "string"
+        })
+        do
+            im.SameLine()
+            local disabled = colorCorrectionRampIndex == 0
+            if disabled then im.BeginDisabled() end
+            if widgets.resetButton("ColorCorrectionRampPathReset") then
+                if zeit_rc_rendercomponents then zeit_rc_rendercomponents.saveSetting("colorCorrectionRampPath", 0) end
+            end
+            if disabled then im.EndDisabled() end
+            im.SameLine()
+            if im.BeginCombo("##ColorCorrectionRampPath", colorCorrectionRamps[colorCorrectionRampIndex] or "") then
+                for k = 0, #colorCorrectionRamps do
+                    if im.Selectable1(colorCorrectionRamps[k], k == colorCorrectionRampIndex) then
+                        if zeit_rc_rendercomponents then
+                            colorCorrectionRampIndex = k
+                            zeit_rc_rendercomponents.saveSetting("colorCorrectionRampPath", colorCorrectionPrefix..colorCorrectionRamps[k])
+                        end
+                    end
+                end
+                -- this would probably need an editor or similar
+                -- also need to figure out how to pack these into a zip export
+                --if widgets.button("Add...", im.ImVec2(im.GetContentRegionAvailWidth(), 0)) then
+                --    Engine.Platform.exploreFolder(colorCorrectionPrefix)
+                --end
+                im.EndCombo()
+            end
+            im.SameLine()
+            im.Text("Color Correction Ramp")
+        end
+
+        widgets.renderFloatGeneric(
+            "PostEffectCombinePassObject.colorCorrectionStrength", {
+                desc = "Blend strength of the color correction",
+                default = "1",
+                varName = "PostEffectCombinePassObject.colorCorrectionStrength",
+                varType = "float"
+            }, {
+                name = "Color Correction Strength",
+                ptr = hdrVals.colorCorrectionStrength,
+                min = 0,
+                max = 1,
+                format = "%.3f",
+                resetDisabled = (hdrVals.colorCorrectionStrength[0] == 1)
+            }, function()
+                if zeit_rc_rendercomponents then zeit_rc_rendercomponents.saveSetting("colorCorrectionStrength", hdrVals.colorCorrectionStrength[0]) end
+            end, function()
+                if zeit_rc_rendercomponents then zeit_rc_rendercomponents.saveSetting("colorCorrectionStrength", 1) end
+            end)
         im.PopID()
     end,
     ui = function()
@@ -1523,6 +1587,13 @@ local function onZeitGraphicsSettingsChange(CURSET)
     SSAORadius[0] = CURSET.ssao and CURSET.ssao.radius or 1.5
     SSAOHighQuality = (CURSET.ssao and CURSET.ssao.samples or 16) == 32
     uiFpsValue[0] = math.ceil(CURSET.uifps and CURSET.uifps.fps or 30)
+
+    hdrVals.colorCorrectionRampPath = CURSET.rendercomponents and CURSET.rendercomponents.colorCorrectionRampPath or ""
+    for k,v in ipairs(FS:findFiles(colorCorrectionPrefix, "*.png\t*.jpg", 0, true, false)) do
+        colorCorrectionRamps[k] = v:match("^.+/(.+)")
+    end
+    colorCorrectionRampIndex = arrayFindValueIndex(colorCorrectionRamps, hdrVals.colorCorrectionRampPath:match("^.+/(.+)")) or 0
+    hdrVals.colorCorrectionStrength[0] = tonumber(CURSET.rendercomponents and CURSET.rendercomponents.colorCorrectionStrength or 1)
 
     dofVals.IsEnabled = tonumber(CURSET.dof and CURSET.dof.isEnabled or "2")
     dofVals.FarBlurMax[0] = CURSET.dof and CURSET.dof.farBlurMax or 0.15
