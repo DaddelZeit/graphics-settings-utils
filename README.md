@@ -6,8 +6,15 @@
 A powerful graphics managing utility, built in BeamNG.drive
 
 ## FAQ
-#### Where do profiles save?
+#### How do I open the UI?
+1. Use the Window Selector:
+Open BeamNG's options, go to "Controls" and then add keys to the bindings prefaced with "Window Selector".
+Press both bindings down to open the Window Selector. Press the key bound to "Cycle Through" again to select the next window.
+Release both keys to open the selected window indicated by the blue outline.​
+2. Add bindings to each window:
+Open BeamNG's options, go to "Controls" and then add keys to the specific bindings.​
 
+#### Where do profiles save?
 The profile save location is `\settings\zeit\renderercomponents\` in your userfolder.
 Only use this to directly back up your settings. If you want to share a profile,
 use the designated export functionality in the Profile Manager or Edit Window.
@@ -19,6 +26,7 @@ This will clear all profile saves and edit history.
 
 #### Can I access older releases?
 This repository was created as an archive for old versions starting at V14. Use the respective branches to view different versions.
+The `dev` branch will always be the newest development beta.
 
 ## Credits
 [@DaddelZeit (Me)](https://www.beamng.com/members/352746/) - Programming, Contrast/Saturation Shader, Letterbox Shader, Profile tuning
