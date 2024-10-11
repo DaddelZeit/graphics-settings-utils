@@ -14,7 +14,7 @@ local widgets = require("zeit/rcUI/editWidgets")
 
 local exportDebug = require("/lua/ge/extensions/zeit/rcTool/exportDebug")
 
-local iconsTex = imguiUtils.texObj("/settings/zeit/rendercomponents/settings/icons.png")
+local icons = require("zeit/rcUI/icon").create("/settings/zeit/rendercomponents/settings/icons.png", 4, 1)
 local previews = {
     spinner = {
         ["All"] = imguiUtils.texObj("/settings/zeit/rendercomponents/settings/spinner_all.png"),
@@ -68,7 +68,7 @@ end
 
 local function renderSelectorLayoutEntry(entrySetting, i, emptySpace)
     local queueRemove = false
-    im.Image(iconsTex.texId, im.ImVec2(emptySpace, emptySpace), im.ImVec2(0,0), im.ImVec2(0.25,1))
+    icons:image(im.ImVec2(emptySpace, emptySpace), 1, 1)
     if im.IsItemHovered() then
         im.SetMouseCursor(im.MouseCursor_ResizeNS)
         blockWindowMovement = true
@@ -78,7 +78,7 @@ local function renderSelectorLayoutEntry(entrySetting, i, emptySpace)
     end
 
     im.SameLine()
-    im.Image(iconsTex.texId, im.ImVec2(emptySpace, emptySpace), im.ImVec2(0.75,0), im.ImVec2(1,1))
+    icons:image(im.ImVec2(emptySpace, emptySpace), 4, 1)
     if im.IsItemHovered() then
         if im.IsItemHovered() then
             im.SetMouseCursor(im.MouseCursor_Hand)
@@ -92,7 +92,7 @@ local function renderSelectorLayoutEntry(entrySetting, i, emptySpace)
     local windowEntry = zeit_rcUI_select.windows[entrySetting[i]]
     if not windowEntry then
         im.SameLine()
-        im.Image(iconsTex.texId, im.ImVec2(emptySpace, emptySpace), im.ImVec2(0.25,0), im.ImVec2(0.5,1), im.ImVec4(1,0.25,0.25,1))
+        icons:image(im.ImVec2(emptySpace, emptySpace), 2, 1, im.ImVec4(1,0.25,0.25,1))
         if im.IsItemHovered() then
             im.SetTooltip("This window no longer exists and won't appear.\nConsider removing this entry.")
         end
@@ -236,7 +236,7 @@ local function render(dt)
         if im.BeginCombo("##WindowSelectAdd", "Add...") then
             for i=1, #zeit_rcUI_select.windowsKeys do
                 local v = zeit_rcUI_select.windowsKeys[i]
-                im.Image(iconsTex.texId, im.ImVec2(emptySpace, emptySpace), im.ImVec2(0.5,0), im.ImVec2(0.75,1))
+                icons:image(im.ImVec2(emptySpace, emptySpace), 3, 1)
                 im.SameLine()
                 if im.Selectable1(v, false) then
                     for k2,v2 in pairs(zeit_rcUI_select.windows) do

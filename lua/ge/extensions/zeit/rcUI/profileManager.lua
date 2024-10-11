@@ -9,7 +9,7 @@ local im = ui_imgui
 local imguiUtils = require("ui/imguiUtils")
 local style = require("zeit/rcTool/style")
 local prepareProfiles = require("zeit/rcUI/prepareProfiles")
-local widgets = rerequire("zeit/rcUI/editWidgets")
+local widgets = require("zeit/rcUI/editWidgets")
 local exportModule = require("zeit/rcTool/export")
 
 M.showUI = false
@@ -17,15 +17,7 @@ M.tab = 0
 
 local winstate = {100, 100, --[[100, 100]]}
 local fullscreen = settingsManager.get("profilemanager_full")
-local iconsTex = imguiUtils.texObj("/settings/zeit/rendercomponents/manager/icons.png")
-local iconNum = 1/6
-local icons = {}
-setmetatable(icons, {
-    __index = function(self, index)
-        return {im.ImVec2((index-1)*iconNum,0), im.ImVec2(index*iconNum,1)}
-    end,
-    __metatable = false
-})
+local icons = require("zeit/rcUI/icon").create("/settings/zeit/rendercomponents/manager/icons.png", 6, 1)
 
 local size = im.ImVec2(1024,512)
 local dotdotdotTimer = 3
@@ -231,8 +223,9 @@ local function renderTopBar()
         im.SetTooltip("Click to open your mods folder.\nInstall new profiles here.")
     end
 
-    local pos = im.GetCursorScreenPos()
-    if widgets.button("", im.ImVec2(im.GetTextLineHeight(), 0)) then
+    local prevCursor = im.GetCursorPosY()
+    im.SetCursorPosY(prevCursor+1.5)
+    if icons:imageButton(im.ImVec2(im.GetTextLineHeight(), im.GetTextLineHeight()), fullscreen and 6 or 5, 1) then
         if fullscreen then
             fullscreen = false
         else
@@ -246,9 +239,7 @@ local function renderTopBar()
     if im.IsItemHovered() then
         im.SetTooltip(fullscreen and "Exit fullscreen" or "Go fullscreen")
     end
-
-    local icon = icons[fullscreen and 6 or 5]
-    im.ImDrawList_AddImage(im.GetWindowDrawList(), iconsTex.texId, im.ImVec2(pos.x,pos.y+3), im.ImVec2(pos.x+im.GetTextLineHeight(),pos.y+im.GetTextLineHeight()+3), icon[1], icon[2], im.GetColorU322(im.ImVec4(1,1,1,1)))
+    im.SetCursorPosY(prevCursor)
 
     if widgets.button("X") then
         toggleUI()
@@ -344,17 +335,17 @@ local function renderChild(name, data, dtReal)
     local hovering = im.IsMouseHoveringRect(im.ImVec2(newCursorPos.x+windowPos.x, newCursorPos.y+windowPos.y), im.ImVec2(newCursorPos.x+windowPos.x+26, newCursorPos.y+windowPos.y+26))
     im.SetCursorPos(newCursorPos)
     if data.fileSource == 0 then
-        im.Image(iconsTex.texId, im.ImVec2(26,26), icons[4][1], icons[4][2])
+        icons:image(im.ImVec2(26,26), 4, 1)
         if hovering then
             im.SetTooltip("Included")
         end
     elseif data.fileSource == 1 then
-        im.Image(iconsTex.texId, im.ImVec2(26,26), icons[2][1], icons[2][2])
+        icons:image(im.ImVec2(26,26), 2, 1)
         if hovering then
             im.SetTooltip("External")
         end
     elseif data.fileSource == 2 then
-        im.Image(iconsTex.texId, im.ImVec2(26,26), icons[1][1], icons[1][2])
+        icons:image(im.ImVec2(26,26), 1, 1)
         if hovering then
             im.SetTooltip("Custom")
         end
@@ -506,7 +497,7 @@ local function renderChild(name, data, dtReal)
     if colOverwritten then
         im.PushStyleColor2(im.Col_Button, im.GetStyleColorVec4(im.Col_ButtonActive))
     end
-    if im.ImageButton2(iconsTex.texId, im.ImVec2(23,23), icons[3][1], icons[3][2], 0, nil, nil) then
+    if icons:imageButton(im.ImVec2(23,23), 3, 1) then
         data.edit = not data.edit
         if data.edit == false then
             local tags = {}
