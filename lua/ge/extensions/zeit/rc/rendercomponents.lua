@@ -19,6 +19,8 @@ local fields = {
     ["colorCorrectionRampPath"] = 0,
     ["oneOverGamma"] = 0,
 }
+local settings = {}
+M.settings = {}
 
 local function getAndSaveSettings()
     local obj = scenetree.PostEffectCombinePassObject
@@ -40,11 +42,25 @@ local function getAndSaveSettings()
     zeit_rcMain.updateSettings("rendercomponents", data)
 end
 
-local function loadSettings(settings)
+local function saveSetting(key, value)
+    local obj = scenetree.PostEffectCombinePassObject
+
+    if obj and settings then
+        settings[key] = value
+
+        zeit_rcMain.updateSettings("rendercomponents", settings)
+    end
+end
+
+local function loadSettings(_settings)
     local obj = scenetree.PostEffectCombinePassObject
     local bloomobj = scenetree.PostEffectBloomObject
 
-    settings = settings or {}
+    settings = _settings or {}
+    M.settings = settings
+    if settings.colorCorrectionRampPath and not FS:fileExists(settings.colorCorrectionRampPath) then
+        settings.colorCorrectionRampPath = ""
+    end
     if obj and bloomobj then
         if not origValues then
             origValues = {}
@@ -86,6 +102,7 @@ end
 
 -- public interface (IMPORTANT)
 M.getAndSaveSettings = getAndSaveSettings
+M.saveSetting = saveSetting
 M.loadSettings = loadSettings
 M.onExtensionUnloaded = onExtensionUnloaded
 
