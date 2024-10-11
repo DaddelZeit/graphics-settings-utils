@@ -1,0 +1,16 @@
+16.2
+Version 15.7:
+- Added fullscreen mode to profile manager
+- Added some protection to avoid windows clipping outside of the game window
+- Added a dropdown to select common aspect ratios for the letterbox
+- Added a profile reload after leaving a game menu that might change the settings
+
+- Finished window selector: centering, links to perf. graph and perf. metrics, shortcuts to reload
+
+- Changed profile manager descriptions scroll to use scrollbar instead of mouse
+- Made previously locked windows resizeable
+- Removed scroll smoothing in favor of stability
+- Fixed a layout issue with the export menu in the profile manager
+- Fixed debug export after epic games update
+- Changed removal detection to hopefully fix bugs caused by abnormal os user names
+- Implemented some minor optimisations
