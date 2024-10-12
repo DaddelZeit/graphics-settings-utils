@@ -52,6 +52,14 @@ local function saveSetting(key, value)
     end
 end
 
+local function saveSettingTemp(k,v)
+    local obj = scenetree.PostEffectCombinePassObject
+
+    if obj and settings then
+        obj:setField(k, 0, v or settings[k])
+    end
+end
+
 local function loadSettings(_settings)
     local obj = scenetree.PostEffectCombinePassObject
     local bloomobj = scenetree.PostEffectBloomObject
@@ -103,6 +111,7 @@ end
 -- public interface (IMPORTANT)
 M.getAndSaveSettings = getAndSaveSettings
 M.saveSetting = saveSetting
+M.saveSettingTemp = saveSettingTemp
 M.loadSettings = loadSettings
 M.onExtensionUnloaded = onExtensionUnloaded
 
