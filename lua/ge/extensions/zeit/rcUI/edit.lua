@@ -21,7 +21,6 @@ local SSAOHighQuality = false
 
 local GeneralEffectsEntryKeyNew = im.ArrayChar(256)
 
-local generalEffectsDirty = false
 local generalEffectsKeysReplaced
 local generalEffectsValues = {}
 local generalEffectsKeys = {}
@@ -81,6 +80,7 @@ local dofVals = {
     NearSlope = im.FloatPtr(0),
     Debug = im.BoolPtr(false)
 }
+
 local colorCorrectionPrefix = "/art/postfx/"
 local colorCorrectionRampIndex = 0
 local colorCorrectionRamps = {
@@ -223,6 +223,7 @@ local modules = {
             end
             im.SameLine()
             exportModule.infoCheckbox()
+            im.Text("This will not export color ramps.")
             if exportTime > 0 then
                 if exported then
                     exportTime = math.max(exportTime - dtReal*2, 0)
@@ -303,6 +304,7 @@ local modules = {
         end
         im.NewLine()
 
+        local width = im.GetCursorPosX()
         widgets.tooltipButton({
             desc = "1-dimensional image for basic color correction mapping.",
             default = "None",
@@ -327,15 +329,17 @@ local modules = {
                         end
                     end
                 end
-                -- this would probably need an editor or similar
-                -- also need to figure out how to pack these into a zip export
-                --if widgets.button("Add...", im.ImVec2(im.GetContentRegionAvailWidth(), 0)) then
-                --    Engine.Platform.exploreFolder(colorCorrectionPrefix)
-                --end
                 im.EndCombo()
             end
             im.SameLine()
+            width = im.GetCursorPosX()-width-style.FramePadding.x*3
             im.Text("Color Correction Ramp")
+        end
+
+        if zeit_rcUI_colorCorrectionEditor then
+            if widgets.button("Create##ColorRamp", im.ImVec2(width, 0)) then
+                zeit_rcUI_colorCorrectionEditor.toggleUI()
+            end
         end
 
         widgets.renderFloatGeneric(
@@ -1579,6 +1583,19 @@ local function onUpdate(dtReal)
     style.pop()
 end
 
+local function refreshColorCorrectionCache()
+    for k,v in ipairs(FS:findFiles(colorCorrectionPrefix, "*.png\t*.jpg", 0, true, false)) do
+        colorCorrectionRamps[k] = v:match("^.+/(.+)")
+    end
+    colorCorrectionRampIndex = arrayFindValueIndex(colorCorrectionRamps, hdrVals.colorCorrectionRampPath:match("^.+/(.+)")) or 0
+end
+
+local function onFileChanged(file)
+    if file:match(colorCorrectionPrefix) then
+        refreshColorCorrectionCache()
+    end
+end
+
 local function onZeitGraphicsSettingsChange(CURSET)
     local defaultvars = require("zeit/rcTool/defaultVars")
     generalEffectsKeysReplaced = defaultvars.get()
@@ -1589,11 +1606,8 @@ local function onZeitGraphicsSettingsChange(CURSET)
     uiFpsValue[0] = math.ceil(CURSET.uifps and CURSET.uifps.fps or 30)
 
     hdrVals.colorCorrectionRampPath = CURSET.rendercomponents and CURSET.rendercomponents.colorCorrectionRampPath or ""
-    for k,v in ipairs(FS:findFiles(colorCorrectionPrefix, "*.png\t*.jpg", 0, true, false)) do
-        colorCorrectionRamps[k] = v:match("^.+/(.+)")
-    end
-    colorCorrectionRampIndex = arrayFindValueIndex(colorCorrectionRamps, hdrVals.colorCorrectionRampPath:match("^.+/(.+)")) or 0
     hdrVals.colorCorrectionStrength[0] = tonumber(CURSET.rendercomponents and CURSET.rendercomponents.colorCorrectionStrength or 1)
+    refreshColorCorrectionCache()
 
     dofVals.IsEnabled = tonumber(CURSET.dof and CURSET.dof.isEnabled or "2")
     dofVals.FarBlurMax[0] = CURSET.dof and CURSET.dof.farBlurMax or 0.15
@@ -1764,5 +1778,6 @@ M.onExtensionLoaded = onExtensionLoaded
 M.onZeitGraphicsSettingsChange = onZeitGraphicsSettingsChange
 M.onZeitGraphicsHistoryCommit = onZeitGraphicsHistoryCommit
 M.onZeitGraphicsLoaded = onZeitGraphicsLoaded
+M.onFileChanged = onFileChanged
 
 return M

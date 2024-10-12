@@ -253,7 +253,7 @@ end
 local function renderExport(name, dtReal)
     if exportWindowOpen and exportWindowOpen == name then
         im.Separator()
-        im.BeginChild1("##export"..name, im.ImVec2(im.GetContentRegionAvailWidth(), size.y/6), false, im.WindowFlags_NoScrollbar)
+        im.BeginChild1("##export"..name, im.ImVec2(im.GetContentRegionAvailWidth(), size.y/5), false, im.WindowFlags_NoScrollbar)
 
         if im.BeginTable("##zeitRenderSettingsProfileManagerExportMenu"..name, 2, im.TableFlags_BordersV, im.ImVec2(im.GetContentRegionAvailWidth()-1, 0)) then
             im.TableNextColumn()
@@ -268,6 +268,7 @@ local function renderExport(name, dtReal)
             end
             im.SameLine()
             exportModule.infoCheckbox()
+            im.Text("This will not export color ramps.")
             if exportTime > 0 then
                 if exported then
                     exportTime = math.max(exportTime - dtReal*2, 0)
