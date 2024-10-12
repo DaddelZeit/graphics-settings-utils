@@ -506,6 +506,7 @@ local function mainInit()
 
     extensions.load("zeit_rcUI_saveOpenDialog")
     extensions.load("zeit_rcUI_edit")
+    extensions.load("zeit_rcUI_colorCorrectionEditor")
 
     extensions.load("zeit_rcUI_profileManager")
     extensions.load("zeit_rcUI_settings")
@@ -600,6 +601,7 @@ end
 local function onExtensionUnloaded()
     extensions.unload("zeit_rcUI_saveOpenDialog")
     extensions.unload("zeit_rcUI_edit")
+    extensions.unload("zeit_rcUI_colorCorrectionEditor")
     extensions.unload("zeit_rcUI_profileManager")
     extensions.unload("zeit_rcUI_settings")
     extensions.unload("zeit_rcUI_screenshot")
