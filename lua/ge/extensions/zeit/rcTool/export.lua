@@ -47,9 +47,18 @@ local function exportProfileAsMod(name)
         zeit_rcMain.profilePath..name..".preview.jpg"
     }
 
-    if not FS:fileExists(files[1]) then
-       zeit_rcMain.log("E", "exportProfileAsMod", "Export failed: profile json doesn't exist or is empty.")
+    local profileData = jsonReadFile(files[1])
+    if not FS:fileExists(files[1]) or not profileData then
+        zeit_rcMain.log("E", "exportProfileAsMod", "Export failed: profile json doesn't exist or is empty.")
         return false
+    end
+
+    if profileData and profileData.rendercomponents and profileData.rendercomponents.colorCorrectionRampPath then
+        local overrides = FS:findOverrides(profileData.rendercomponents.colorCorrectionRampPath)
+        local filePath = overrides[1]
+        if filePath == FS:getUserPath() then
+            files[#files+1] = profileData.rendercomponents.colorCorrectionRampPath
+        end
     end
 
     local archiveName = string.format("/mods/%s_rc_export_%d.zip", name, os.time())
@@ -71,7 +80,7 @@ local function exportProfileAsMod(name)
 
     if not zipSuccess then
         FS:deleteFile("/temp"..archiveName)
-       zeit_rcMain.log("E", "exportProfileAsMod", "Export failed: Zip failed to create correctly.")
+        zeit_rcMain.log("E", "exportProfileAsMod", "Export failed: Zip failed to create correctly.")
         return false
     else
         return FS:renameFile("/temp"..archiveName, archiveName), archiveName
