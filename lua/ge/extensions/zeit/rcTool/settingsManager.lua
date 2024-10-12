@@ -23,6 +23,7 @@ local defaults = {
     ["selected_window"] = 1,
 
     ["profilemanager_full"] = false,
+    ["color_correction_auto_apply"] = true,
 
     ["export_option"] = 1,
     ["export_info"] = true,
